@@ -14,7 +14,7 @@ Matts Auto Recon script (TESTING)
 <li>https://github.com/0xZDH/o365spray.git</li>
 
 
-<h2>Set up</h2>
+<h2>Manual Set up</h2>
 <br>
 <li>step 1 git clone https://github.com/cgsupport/AutoRecon.git and move to /opt</li>
 <li>step 2 chmod RWX for current user on all .sh files in folder</li>
@@ -23,7 +23,7 @@ Matts Auto Recon script (TESTING)
 <li>step 4 Run AutoRecon</li>
 
 
-<h2> Alternative set up (testing) </h2>
+<h2> Automatic set up (testing) </h2>
 <br>
 <li>git clone https://github.com/cgsupport/AutoRecon.git</li>
 <li>run dependancies.sh as sudo</li> 
