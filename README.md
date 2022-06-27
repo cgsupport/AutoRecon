@@ -11,7 +11,7 @@ Matts Auto Recon script (TESTING)
 <h3>other tools that are required (all these tools need to be located in /opt/ and set up to work) </h3>
 <br>
 <li>https://github.com/m8r0wn/CrossLinked.git</li>
-https://github.com/0xZDH/o365spray.git</li>
+<li>https://github.com/0xZDH/o365spray.git</li>
 
 
 <h2>Set up</h2>
