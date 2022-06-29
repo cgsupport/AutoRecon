@@ -32,7 +32,7 @@ echo ""
 
 if [ -d "$home/workspaces/$workspace" ]; then
 	 echo "$DIR directory exists."
-     echo "clear"
+     clear
 else
 	echo "$DIR directory does not exist. Setting up workspace"
 	/opt/AutoRecon/scripts/workspace.sh
