@@ -8,7 +8,7 @@ Matts Auto Recon script (TESTING)
 <li>apt install dig</li>
 <li>apt install Nmap</li>
 
-<h3>other tools that are required (all these tools need to be located in /opt/ and set up to work) </h3>
+<h3>other tools that are required (all these tools need to be located in /opt/ and set up to work for your user without sudo) </h3>
 <br>
 <li>https://github.com/m8r0wn/CrossLinked.git</li>
 <li>https://github.com/0xZDH/o365spray.git</li>
