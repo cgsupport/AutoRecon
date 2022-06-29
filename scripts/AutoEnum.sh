@@ -1,7 +1,7 @@
 clear
 Whatuser=$(tty | grep -o)
 nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
-
+PassSpray= $(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
 if [ $nmapproc -eq "foo" ]
 then
 	nmapscanrunning="true"
@@ -9,6 +9,12 @@ else
 	nmapscanrunning="false"
 fi
 
+if [ $PassSpray -eq "foo"]
+then
+	PassSprayStatus="true"
+else
+	PassSprayStatus="false"
+fi
 
 echo "----------------------------------"
 echo "AutoEnum" 
@@ -26,7 +32,9 @@ if [[ -d ~/workspaces/$workspace ]]
 
 then
 	echo "workspace exists"
+	clear
 else 
+	clear
 	echo "$FILE does not exist please set up workspace" 
         
 fi
@@ -38,18 +46,16 @@ ls ~/workspaces
 echo ""
 echo ""
 echo "=================================="
-echo ""
-echo ""
-echo "=================================="
 echo "        Current settings          "
-echo ""
 echo "=================================="
 echo ""
 echo "Script running as:  $USER"
 echo "Workspace location: " ~/workspaces/$workspace
-echo "----------------------------------"
+echo ""
+echo "================================="
 echo "Target Variables"
 echo "================================="
+echo ""
 echo "ExternalIP" 
 cat ~/workspaces/$workspace/NMAP/External/extTargets.txt
 echo ""
@@ -59,8 +65,15 @@ echo ""
 echo "Email Format" 
 cat ~/workspaces/$workspace/Var/emailformat.txt
 echo ""
+echo "================================="
+echo "Running processes"
+echo "================================="
+echo ""
 echo "NMAP scans Running?"
 echo $nmapscanrunning
+echo ""
+echo "Password spray running?"
+echo $PassSprayStatus
 echo "=================================="
 echo ""
 echo "----------------------------------"
