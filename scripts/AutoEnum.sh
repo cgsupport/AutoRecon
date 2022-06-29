@@ -28,8 +28,6 @@ echo ""
 echo ""
 echo "checking for workspace folder" 
 read -p "please enter the name of the workspace folder " workspace
-
-if [[ -d ~/workspaces/$workspace ]]
 DIR=~/workspaces/$workspace
 if [ -d "$DIR" ];
 then
