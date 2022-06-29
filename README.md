@@ -7,6 +7,7 @@ Matts Auto Recon script (TESTING)
 <li>apt install dnsmap</li>
 <li>apt install dig</li>
 <li>apt install Nmap</li>
+<li>apt install tree</li>
 
 <h3>other tools that are required (all these tools need to be located in /opt/ and set up to work for your user without sudo) </h3>
 <br>
