@@ -1,4 +1,5 @@
 clear
+$home=$(echo ~)
 read -p "Please enter the workspace name:  " workspace
 echo "Performing the following automated checks"
 echo ""
@@ -17,49 +18,49 @@ echo "1. DNS Records"
 echo "2. Zone Transfer"
 echo "3. Subdomain Bruteforce"
 
-ExtAddr=$(cat ~/workspaces/$workspace/NMAP/External/extTargets.txt)
-Domain=$(cat ~/workspaces/$workspace/Var/domain.txt)
+ExtAddr=$(cat $home/workspaces/$workspace/NMAP/External/extTargets.txt)
+Domain=$(cat $home/workspaces/$workspace/Var/domain.txt)
 
 #Dns Record Check 
-touch ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "A Records" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain A >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
+touch $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "A Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain A >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "AAAA Records" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain AAAA >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "AAAA Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain AAAA >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "NS Records" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain ns >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "NS Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain ns >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "CNAME Records" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain cname >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "CNAME Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain cname >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "TXT Records" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain txt >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "TXT Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain txt >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-cat ~/workspaces/$workspace/DNSInfo/DNSRecords
+cat $home/workspaces/$workspace/DNSInfo/DNSRecords
 
 ################################################################
 #DNS Zone transfer check 
-touch ~/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
-dig @1.1.1.1 $Domain axfr > ~/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
-cat ~/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
+touch $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
+dig @1.1.1.1 $Domain axfr > $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
+cat $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
 
 ####################################################################
 #Subdomain Bruteforce
 read -p "Would you like to Continue to Subdomain Bruteforce): " -n 1 -r
 echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ ! $REPLY =~ ^[Yy]$ ]];
 then
 	            /opt/AutoRecon/scripts/AutoEnum.sh 
 		    exit
@@ -79,7 +80,7 @@ case $wordlistChoice in
 	*) wordlist="Domain-small.txt";;
 esac
 
-dnsmap $Domain -w /opt/AutoRecon/Wordlists/$wordlist -r ~/workspaces/$workspace/DNSInfo/SubBrute.txt
+dnsmap $Domain -w /opt/AutoRecon/Wordlists/$wordlist -r $home/workspaces/$workspace/DNSInfo/SubBrute.txt
 
 
 
