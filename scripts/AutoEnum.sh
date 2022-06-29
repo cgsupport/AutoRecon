@@ -3,6 +3,7 @@ Whatuser=$(tty | tr -d dev | cut -c3-)
 nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
 PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
 home=$(echo ~)
+
 if [ -n $nmapproc  ]; then
 	nmapscanrunning="false"
 else
@@ -28,7 +29,8 @@ echo ""
 echo "checking for workspace folder" 
 read -p "please enter the name of the workspace folder " workspace
 echo ""
-if [ -d "$home/$workspace" ]; then
+
+if [ -d "$home/workspaces/$workspace" ]; then
 	 echo "$DIR directory exists."
      echo "clear"
 else
@@ -36,6 +38,7 @@ else
 	/opt/AutoRecon/scripts/workspace.sh
 	exit
 fi
+
 echo "=================================="
 echo "---------Workspaces---------------"
 echo "=================================="
