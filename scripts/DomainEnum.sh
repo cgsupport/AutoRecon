@@ -1,5 +1,5 @@
 clear
-$home=$(echo ~)
+home=$(echo ~)
 read -p "Please enter the workspace name:  " workspace
 echo "Performing the following automated checks"
 echo ""
