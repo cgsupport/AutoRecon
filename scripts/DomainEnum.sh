@@ -60,10 +60,9 @@ cat $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
 #Subdomain Bruteforce
 read -p "Would you like to Continue to Subdomain Bruteforce): " -n 1 -r
 echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]];
-then
-	            /opt/AutoRecon/scripts/AutoEnum.sh 
-		    exit
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+	/opt/AutoRecon/scripts/AutoEnum.sh 
+	exit
 fi
 
 echo "please select a wordlist(default:5000 Wordlist)"
