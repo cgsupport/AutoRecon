@@ -31,6 +31,7 @@ mkdir ~/workspaces/$COMPANYNAME/Users
 mkdir ~/workspaces/$COMPANYNAME/Users/emails
 mkdir ~/workspaces/$COMPANYNAME/Users/Passwords
 mkdir ~/workspaces/$COMPANYNAME/Users/ADAccounts
+mkdir ~/workspaces/$COMPANYNAME/Users/emails/spray
 echo "Creating Variable files"
 mkdir ~/workspaces/$COMPANYNAME/Var
 touch ~/workspaces/$COMPANYNAME/Var/domain.txt

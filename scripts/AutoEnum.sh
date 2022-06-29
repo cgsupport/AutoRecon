@@ -1,4 +1,15 @@
 clear
+Whatuser=$(tty | grep -o)
+nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
+
+if [ $nmapproc -eq "foo" ]
+then
+	nmapscanrunning="true"
+else
+	nmapscanrunning="false"
+fi
+
+
 echo "----------------------------------"
 echo "AutoEnum" 
 echo "----------------------------------"
@@ -48,6 +59,8 @@ echo ""
 echo "Email Format" 
 cat ~/workspaces/$workspace/Var/emailformat.txt
 echo ""
+echo "NMAP scans Running?"
+echo $nmapscanrunning
 echo "=================================="
 echo ""
 echo "----------------------------------"

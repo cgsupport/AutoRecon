@@ -47,6 +47,8 @@ echo "TXT Records" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
 echo "-----------------" >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
 dig +noall +answer @1.1.1.1 $Domain txt >> ~/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
+cat ~/workspaces/$workspace/DNSInfo/DNSRecords
+
 ################################################################
 #DNS Zone transfer check 
 touch ~/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt

