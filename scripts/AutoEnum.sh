@@ -29,6 +29,7 @@ echo ""
 echo ""
 echo "checking for workspace folder" 
 read -p "please enter the name of the workspace folder " workspace
+echo ""
 DIR="$home/workspaces/$workspace"
 if [ -d "$DIR" ];
 then
