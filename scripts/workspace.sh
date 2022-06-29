@@ -3,7 +3,7 @@ echo "Setting up workspace"
 home=$(echo ~)
 echo "Checking for Workspace folder"
 
-if [ ! -d "$home/workspaces"];then 
+if [ ! -d "$home/workspaces" ]; then 
 	mkdir $home/workspaces
 else 
 	echo "workspaces folder found"
