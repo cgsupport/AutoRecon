@@ -1,18 +1,18 @@
 clear
 Whatuser=$(tty | tr -d dev | cut -c3-)
 nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
-PassSpray= $(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
-
-if [ -n $nmapproc  ]
+PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
+home=$(echo~)
+if [ -n $nmapproc  ];
 then
 	nmapscanrunning="false"
 else
 	nmapscanrunning="true"
 fi
 
-if [ -n $PassSpray ]
+if [ -n $PassSpray ];
 then
-	PassSprayStatus="flase"
+	PassSprayStatus="false"
 else
 	PassSprayStatus="true"
 fi
@@ -29,7 +29,7 @@ echo ""
 echo ""
 echo "checking for workspace folder" 
 read -p "please enter the name of the workspace folder " workspace
-DIR=~/workspaces/$workspace
+DIR="$home/workspaces/$workspace"
 if [ -d "$DIR" ];
 then
     echo "$DIR directory exists."
@@ -43,7 +43,7 @@ fi
 echo "=================================="
 echo "---------Workspaces---------------"
 echo "=================================="
-ls ~/workspaces
+ls $home/workspaces
 echo ""
 echo ""
 echo "=================================="
@@ -51,20 +51,20 @@ echo "        Current settings          "
 echo "=================================="
 echo ""
 echo "Script running as:  $USER"
-echo "Workspace location: " ~/workspaces/$workspace
+echo "Workspace location: " $home/workspaces/$workspace
 echo ""
 echo "================================="
 echo "Target Variables"
 echo "================================="
 echo ""
 echo "ExternalIP" 
-cat ~/workspaces/$workspace/NMAP/External/extTargets.txt
+cat $home/workspaces/$workspace/NMAP/External/extTargets.txt
 echo ""
 echo "Domain: " 
-cat ~/workspaces/$workspace/Var/domain.txt
+cat $home/workspaces/$workspace/Var/domain.txt
 echo ""
 echo "Email Format" 
-cat ~/workspaces/$workspace/Var/emailformat.txt
+cat $home/workspaces/$workspace/Var/emailformat.txt
 echo ""
 echo "================================="
 echo "Running processes"
