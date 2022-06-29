@@ -2,8 +2,8 @@ echo "Setting up workspace"
 ##################################################
 home=$(echo ~)
 echo "Checking for Workspace folder"
-if [ ! -f $home/workspaces];
-then 
+
+if [ ! -d "$home/workspaces"];then 
 	mkdir $home/workspaces
 else 
 	echo "workspaces folder found"
@@ -13,7 +13,7 @@ echo "Available workspaces"
 ls $home/workspaces
 read -p "enter Company name: " COMPANYNAME
 
-if [ -f $home/workspaces/$COMPANYNAME ]; then 
+if [ -d $home/workspaces/$COMPANYNAME ]; then 
 	echo "Workspace exists Going to Main Menu"
 	/opt/AutoRecon/scripts/AutoEnum.sh
 	exit 0
