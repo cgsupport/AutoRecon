@@ -1,7 +1,8 @@
 clear
-Whatuser=$(tty | grep -o)
+Whatuser=$(tty | tr -d dev | cut -c3-)
 nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
 PassSpray= $(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
+
 if [ -n $nmapproc  ]
 then
 	nmapscanrunning="false"
