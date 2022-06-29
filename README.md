@@ -29,6 +29,11 @@ Matts Auto Recon script (TESTING)
 <li>git clone https://github.com/cgsupport/AutoRecon.git</li>
 <li>run dependancies.sh as sudo</li> 
 
+<h2>Features Currently working<h2>
+      <li>Dynamic Workspace</li>
+      <li>Domain Enumeration</li>
+      <li>o365 Enumeration/validation/spray</li>
+
 <h2>TODO: </h2>
 <br>
 <li>- Fix formatting of ASCII art </li>
