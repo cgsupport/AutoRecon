@@ -2,7 +2,8 @@ echo "Setting up workspace"
 ##################################################
 
 echo "Checking for Workspace folder"
-if [! -f ~/workspaces]; then 
+if [ ! -f ~/workspaces]
+then 
 	mkdir ~/workspaces
 else 
 	echo "workspaces folder found"
