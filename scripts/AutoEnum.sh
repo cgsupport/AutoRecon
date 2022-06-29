@@ -29,7 +29,6 @@ echo "checking for workspace folder"
 read -p "please enter the name of the workspace folder " workspace
 
 if [[ -d ~/workspaces/$workspace ]]
-
 then
 	echo "workspace exists"
 	clear
@@ -37,6 +36,7 @@ else
 	clear
 	echo "$FILE does not exist please set up workspace" 
         /opt/AutoRecon/scripts/workspace.sh
+	exit
 fi
 
 echo "=================================="
