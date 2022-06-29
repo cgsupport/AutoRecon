@@ -20,7 +20,7 @@ Matts Auto Recon script (TESTING)
 <li>step 2 chmod RWX for current user on all .sh files in folder</li>
 <li>step 3 add to bashrc/bash_aliases the following line 
       - alias AutoRecon= /opt/AutoRecon/scripts/AutoEnum.sh</li>
-<li>step 4 Run AutoRecon</li>
+<li>step 4 Run AutoRecon from ~ directory</li>
 
 
 <h2> Automatic set up (testing) </h2>
