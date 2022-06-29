@@ -33,6 +33,7 @@ Matts Auto Recon script (TESTING)
       <li>Dynamic Workspace</li>
       <li>Domain Enumeration</li>
       <li>o365 Enumeration/validation/spray</li>
+      <li>Nmap scans Possibly work but need to be tested as program built on wsl Nmap not working on wsl</li>
 
 <h2>TODO: </h2>
 <br>
