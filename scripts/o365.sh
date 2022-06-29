@@ -1,4 +1,5 @@
 clear
+home=$(echo ~)
 read -p "Please enter workspace name: " workspace
 echo $workspace
 echo "Setting email Format"
