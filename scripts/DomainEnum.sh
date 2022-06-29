@@ -23,30 +23,30 @@ Domain=$(cat $home/workspaces/$workspace/Var/domain.txt)
 
 #Dns Record Check 
 touch $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "A Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain A >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "A Records" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain A > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "AAAA Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain AAAA >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "AAAA Records" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain AAAA > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "NS Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain ns >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "NS Records" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain ns > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "CNAME Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain cname >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "CNAME Records" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain cname > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "TXT Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-dig +noall +answer @1.1.1.1 $Domain txt >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "TXT Records" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+echo "-----------------" > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+dig +noall +answer @1.1.1.1 $Domain txt > $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
 cat $home/workspaces/$workspace/DNSInfo/DNSRecords
 
