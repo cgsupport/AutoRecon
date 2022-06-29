@@ -36,7 +36,7 @@ then
 else 
 	clear
 	echo "$FILE does not exist please set up workspace" 
-        
+        /opt/AutoRecon/scripts/workspace.sh
 fi
 
 echo "=================================="
