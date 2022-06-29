@@ -24,18 +24,20 @@ echo "--------------------------------------"
 echo "use how you wish but its on you..."
 echo "-------------------------------------"
 echo "-------------------------------------"
-clear
+echo ""
+echo ""
 echo "checking for workspace folder" 
 read -p "please enter the name of the workspace folder " workspace
 
 if [[ -d ~/workspaces/$workspace ]]
+DIR=~/workspaces/$workspace
+if [ -d "$DIR" ];
 then
-	echo "workspace exists"
-	clear
-else 
-	clear
-	echo "$FILE does not exist please set up workspace" 
-        /opt/AutoRecon/scripts/workspace.sh
+    echo "$DIR directory exists."
+    echo "clear"
+else
+	echo "$DIR directory does not exist. Setting up workspace"
+	/opt/AutoRecon/scripts/workspace.sh
 	exit
 fi
 
