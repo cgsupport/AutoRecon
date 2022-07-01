@@ -9,10 +9,10 @@ read -p "Do you already have an email list? " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Nn]$ ]];
 then
-	
+
 echo "creating email list"
 read -p "Please enter the full name of the company you would like to Enumerate: " CompName
-python3 /opt/CrossLinked/crosslinked.py -f $EmailFormat  "'$CompName'" -o $home/workspaces/$workspace/Users/emails/EmailList.txt
+python3 /opt/CrossLinked/crosslinked.py -f $EmailFormat "'$CompName'" -o $home/workspaces/$workspace/Users/emails/EmailList.txt
 echo "email list Complete"
 head -10 $home/workspaces/$workspace/Users/emails/EmailList.txt
 sleep 3
