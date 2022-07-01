@@ -2,7 +2,6 @@ clear
 home=$(echo ~)
 read -p "please enter the name of the workspace folder " workspace
 clear 
-dns
 echo "----------------------------------"
 echo "-----------LOOT-------------------"
 echo "----------------------------------"
@@ -60,7 +59,7 @@ case $options in
     5) clear ;;
 
 	8) /opt/AutoRecon/scripts/AutoEnum.sh ;;
-    
+
 	*) echo "Please Choose a number from the menu";;
 
 esac
