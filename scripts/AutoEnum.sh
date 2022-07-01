@@ -15,8 +15,6 @@ if [ -n $PassSpray ]; then
 
 	PassSprayStatus="true"
 fi
-
-#
 echo "----------------------------------"
 echo "AutoEnum" 
 echo "----------------------------------"
