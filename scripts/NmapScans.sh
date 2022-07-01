@@ -1,15 +1,21 @@
 home=$(echo ~)
+
 echo "Available workspaces"
 ls $home/workspaces
 echo "======================="
 read -p "Enter Company name: " COMPANYNAME
 
-if ! [ -f $home/workspaces/$COMPANYNAME ]; then
+if [ -f "/path/to/file" ]; then
+	echo "File \"/path/to/file\" exists"
+fi
+
+
+if [ ! -f $home/workspaces/$COMPANYNAME ]; then
 	        read "Workspace does not exist please set up workspace first"
-		    /opt/AutoRecon/scripts/AutoEnum.sh
-			exit  
+		    /opt/AutoRecon/scripts/AutoEnum.sh  
 				
 fi
+
 echo "Workspace does exist. Continuing to NMAP Menu"
 sleep 2
 clear 
