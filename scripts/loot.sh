@@ -1,7 +1,6 @@
 clear
 home=$(echo ~)
 read -p "please enter the name of the workspace folder " workspace
-
 clear 
 dns
 echo "----------------------------------"
@@ -11,7 +10,8 @@ echo ""
 echo "1 - DNS Loot"
 echo "2 - Valid Emails"
 echo "3 - Compromised accounts(email spray)"
-echo "4 - Open Ports & found services"
+echo "4 - Open Ports & found services (to be completed)"
+echo "5 - Package loot to zip(to be completed)"
 echo "8 - Main Menu"
 read options;
 case $options in 
@@ -37,20 +37,28 @@ case $options in
         /opt/AutoRecon/scripts/loot.sh
         clear;;
 	2) clear
+        validaccountfile=$(ls $home/workspaces/$workspace/Users/emails | grep -E "enum_valid*")
         echo "Valid Emails"
         echo "-------------------"
+        echo "first 10 Emails in list"
+        head -10 $home/workspaces/$workspace/Users/emails/$validaccountfile
         read -n 1 -r -s -p "Press any key to return to Loot Menu" key
         clear;;
 	3) clear
+        validsprayfile=$(ls $home/workspaces/$workspace/Users/emails | grep -E "enum_spray*")
         echo "Compromised Emails"
         echo "-------------------"
+        cat $home/workspaces/$workspace/Users/emails/spray/$validsprayfile
         read -n 1 -r -s -p "Press any key to return to Loot Menu" key
         clear ;;
     4) clear
         echo "Open Ports and services Found"
         echo "-------------------"
+        echo "to be completed when nmap scanning file is comeplete"
         read -n 1 -r -s -p "Press any key to return to Loot Menu" key
         clear ;;
+    5) clear 
+
 	8) /op/AutoRecon/scripts/AutoEnum.sh;;
 	*) echo "Please Choose a number from the menu"
 esac
