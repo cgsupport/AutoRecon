@@ -81,7 +81,7 @@ echo "1 - Set-Up Workspace"
 echo "2 - Domain enumeration"
 echo "3 - o365 enum/validation/spray"
 echo "4 - NMAP scans"
-echo "6 - View Loot"
+echo "5 - View Loot"
 echo "7 - Change Workspace"
 echo "8 - Exit"
 read options;
@@ -90,7 +90,7 @@ case $options in
 	2) /opt/AutoRecon/scripts/DomainEnum.sh;;
 	3) /opt/AutoRecon/scripts/o365.sh;;
 	4) /opt/AutoRecon/scripts/NmapScans.sh;;
-	5) /opt/AutoRecon/scripts/Loot.sh;;
+	5) /opt/AutoRecon/scripts/loot.sh;;
 	6) /opt/AutoRecon/scripts/AutoEnum.sh;;
 	7) exit;;
 	*) echo "Please Choose a number from the menu"
