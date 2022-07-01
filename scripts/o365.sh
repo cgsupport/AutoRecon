@@ -1,8 +1,8 @@
-clear
+
 home=$(echo ~)
+read -p "Please enter workspace name: " workspace
 EmailFormat=$(cat $home/workspaces/$workspace/Var/emailformat.txt)
 emaildomain=$(head -1 $home/workspaces/$workspace/Users/emails/EmailList.txt | grep -o "@.*" | sed 's/@//')
-read -p "Please enter workspace name: " workspace
 clear
 
 read -p "Do you already have an email list? " -n 1 -r
