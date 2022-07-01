@@ -35,7 +35,7 @@ case $options in
         cat $home/workspaces/$workspace/DNSInfo/SubBrute.txt
         read -n 1 -r -s -p "press any key to return to loot menu" key
         /opt/AutoRecon/scripts/loot.sh
-        clear;;
+        clear ;;
 	2) clear
         validaccountfile=$(ls $home/workspaces/$workspace/Users/emails | grep -E "enum_valid*")
         echo "Valid Emails"
@@ -43,7 +43,7 @@ case $options in
         echo "first 10 Emails in list"
         head -10 $home/workspaces/$workspace/Users/emails/$validaccountfile
         read -n 1 -r -s -p "Press any key to return to Loot Menu" key
-        clear;;
+        clear ;;
 	3) clear
         validsprayfile=$(ls $home/workspaces/$workspace/Users/emails | grep -E "enum_spray*")
         echo "Compromised Emails"
@@ -57,8 +57,10 @@ case $options in
         echo "to be completed when nmap scanning file is comeplete"
         read -n 1 -r -s -p "Press any key to return to Loot Menu" key
         clear ;;
-    5) clear 
+    5) clear ;;
 
-	8) /op/AutoRecon/scripts/AutoEnum.sh;;
-	*) echo "Please Choose a number from the menu"
+	8) /opt/AutoRecon/scripts/AutoEnum.sh ;;
+    
+	*) echo "Please Choose a number from the menu";;
+
 esac
