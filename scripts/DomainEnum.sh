@@ -4,6 +4,7 @@ ExtAddr=$(cat $home/workspaces/$workspace/NMAP/External/extTargets.txt)
 Domain=$(cat $home/workspaces/$workspace/Var/domain.txt)
 
 read -p "Please enter the workspace name:  " workspace
+clear
 echo "Performing the following automated checks"
 echo ""
 echo "DNS Record check"
@@ -20,6 +21,11 @@ echo "this will be done in stages"
 echo "1. DNS Records"
 echo "2. Zone Transfer"
 echo "3. Subdomain Bruteforce"
+echo ""
+echo ""
+echo ""
+sleep 5
+clear
 #Dns Record Check 
 echo "Finding DNS Records"
 touch $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
@@ -48,8 +54,8 @@ echo "TXT Records" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 echo "-----------------" >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 dig +noall +answer @1.1.1.1 $Domain txt >> $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
 
-cat $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-
+sleep 5
+clear
 ################################################################
 #DNS Zone transfer check 
 echo "checking to see if DNS transfer is available"
@@ -57,6 +63,8 @@ touch $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
 dig @1.1.1.1 $Domain axfr > $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
 cat $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt
 
+sleep 5
+clear
 ####################################################################
 #Subdomain Bruteforce
 read -p "Would you like to Continue to Subdomain Bruteforce): " -n 1 -r
@@ -82,7 +90,8 @@ esac
 
 dnsmap $Domain -w /opt/AutoRecon/Wordlists/$wordlist -r $home/workspaces/$workspace/DNSInfo/SubBrute.txt
 
-
+echo "Returning to menu"
+/opt/AutoRecon/scripts/AutoEnum.sh
 
 
 #

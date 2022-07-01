@@ -3,18 +3,19 @@ Whatuser=$(tty | tr -d dev | cut -c3-)
 nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
 PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
 home=$(echo ~)
+nmapscanrunning = "false"
+PassSprayStatus = "false"
 
 if [ -n $nmapproc  ]; then
-	nmapscanrunning="true"
-else
+
 	nmapscanrunning="true"
 fi
 
 if [ -n $PassSpray ]; then
-	PassSprayStatus="false"
-else
+
 	PassSprayStatus="true"
 fi
+
 #
 echo "----------------------------------"
 echo "AutoEnum" 
