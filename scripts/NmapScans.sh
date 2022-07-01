@@ -2,7 +2,7 @@ home=$(echo ~)
 echo "Available workspaces"
 ls $home/workspaces
 echo "======================="
-read -p "enter Company name: " COMPANYNAME
+read -p "Enter Company name: " COMPANYNAME
 
 if ! [ -f $home/workspaces/$COMPANYNAME ]; then
 	        read "Workspace does not exist please set up workspace first"
