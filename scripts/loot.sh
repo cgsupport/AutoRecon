@@ -59,9 +59,10 @@ case $options in
     5) clear 
         validsprayfile=$(ls $home/workspaces/$workspace/Users/emails | grep -E "enum_spray*")
         echo "creating zip file"
-        zip Loot.zip $home/workspaces/$workspace/Users/emails/spray/$validsprayfile $home/workspaces/$workspace/Users/emails/$validaccountfile $home/workspaces/$workspace/DNSInfo/SubBrute.txt $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
-    ;;
-
+        zip $home/workspaces/$workspace/loot/Loot.zip $home/workspaces/$workspace/Users/emails/spray/$validsprayfile $home/workspaces/$workspace/Users/emails/$validaccountfile $home/workspaces/$workspace/DNSInfo/SubBrute.txt $home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+        echo "Zipfile located in $home/workspaces/$workspace/loot"
+        read -n 1 -r -s -p "Press any key to return to Loot Menu" key
+        clear ;;
 	8) /opt/AutoRecon/scripts/AutoEnum.sh ;;
 
 	*) echo "Please Choose a number from the menu";;
