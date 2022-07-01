@@ -5,7 +5,7 @@ PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
 home=$(echo ~)
 
 if [ -n $nmapproc  ]; then
-	nmapscanrunning="false"
+	nmapscanrunning="true"
 else
 	nmapscanrunning="true"
 fi
@@ -28,7 +28,7 @@ echo ""
 echo ""
 echo "checking for workspace folder" 
 read -p "please enter the name of the workspace folder " workspace
-echo ""
+
 
 if [ -d "$home/workspaces/$workspace" ]; then
 	 echo "$DIR directory exists."
