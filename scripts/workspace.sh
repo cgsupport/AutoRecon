@@ -17,7 +17,7 @@ read -p "enter Company name: " COMPANYNAME
 if [ -d $home/workspaces/$COMPANYNAME ]; then 
 	echo "Workspace exists Going to Main Menu"
 	/opt/AutoRecon/scripts/AutoEnum.sh
-	exit 0
+	exit
 fi
 clear
 echo "making Working Directories"
