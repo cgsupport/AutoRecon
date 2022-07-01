@@ -29,12 +29,12 @@ clear
 nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep "$workspace" | grep -v "grep")
 PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep "$workspace" | grep -v "grep")
 
-if [ -n $nmapproc  ]; then
+if ! [ -n $nmapproc  ]; then
 
 	nmapscanrunning="true"
 fi
 
-if [ -n $PassSpray ]; then
+if ! [ -n $PassSpray ]; then
 
 	PassSprayStatus="true"
 fi
