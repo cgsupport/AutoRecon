@@ -1,9 +1,9 @@
 clear
 home=$(echo ~)
-read -p "Please enter workspace name: " workspace
-echo $workspace
-echo "Setting email Format"
 EmailFormat=$(cat $home/workspaces/$workspace/Var/emailformat.txt)
+emaildomain=$(head -1 $home/workspaces/$workspace/Users/emails/EmailList.txt | grep -o "@.*" | sed 's/@//')
+read -p "Please enter workspace name: " workspace
+clear
 
 read -p "Do you already have an email list? " -n 1 -r
 echo
@@ -15,10 +15,11 @@ read -p "Please enter the full name of the company you would like to Enumerate: 
 python3 /opt/CrossLinked/crosslinked.py -f $EmailFormat  "'$CompName'" -o $home/workspaces/$workspace/Users/emails/EmailList.txt
 echo "email list Complete"
 head -10 $home/workspaces/$workspace/Users/emails/EmailList.txt
+sleep 3
+clear
 
 fi
 
-emaildomain=$(head -1 $home/workspaces/$workspace/Users/emails/EmailList.txt | grep -o "@.*" | sed 's/@//')
 read -p "Would you like to Continue to Validation/spray(Active/Bruteforce): " -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]];
