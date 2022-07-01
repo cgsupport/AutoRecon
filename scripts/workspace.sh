@@ -1,15 +1,16 @@
+clear
+home=$(echo ~)
 echo "Setting up workspace"
 ##################################################
-home=$(echo ~)
 echo "Checking for Workspace folder"
-
+echo ""
 if [ ! -d "$home/workspaces" ]; then 
+	echo "Workspace folder not found Creating folder"
 	mkdir $home/workspaces
-else 
-	echo "workspaces folder found"
 fi
-
+echo "=============================="
 echo "Available workspaces"
+echo "=============================="
 ls $home/workspaces
 read -p "enter Company name: " COMPANYNAME
 
@@ -17,10 +18,8 @@ if [ -d $home/workspaces/$COMPANYNAME ]; then
 	echo "Workspace exists Going to Main Menu"
 	/opt/AutoRecon/scripts/AutoEnum.sh
 	exit 0
-else 
-	echo "Workspace does not exist. Creating working directory"
 fi
-
+clear
 echo "making Working Directories"
 echo "creating Main Working directory"
 mkdir $home/workspaces/$COMPANYNAME
@@ -69,7 +68,7 @@ echo "$emailformat" >> $home/workspaces/$COMPANYNAME/Var/emailformat.txt
 echo "email format created"
 cat $home/workspaces/$COMPANYNAME/Var/emailformat.txt
 read -n 1 -r -s -p "if email format looks correct press any key to set domain information" key
-
+clear
 ######################
 # DNS enumeration #### 
 #######################
@@ -84,11 +83,12 @@ cat $home/workspaces/$COMPANYNAME/Var/tmp/domain.txt | cut -d "=" -f2- > $home/w
 sed '$ s/.$//' $home/workspaces/$COMPANYNAME/Var/domain.txt > $home/workspaces/$COMPANYNAME/Var/tmp/domain.txt
 #removing whitespaces
 cat $home/workspaces/$COMPANYNAME/Var/tmp/domain.txt | sed 's/ //g' > $home/workspaces/$COMPANYNAME/Var/domain.txt
-cat $home/workspaces/$COMPANYNAME/Var/domain.txt
+clear
+echo "Domain information found"
 echo "IP: $EXTADDR"
 echo "Domain:"
 cat $home/workspaces/$COMPANYNAME/Var/domain.txt
-
+echo ""
 ############################
 
 read -n 1 -r -s -p "WorkPlace and Variables Set Up Press any key to Continue to main Menu" key
