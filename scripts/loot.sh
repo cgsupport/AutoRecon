@@ -56,7 +56,11 @@ case $options in
         echo "to be completed when nmap scanning file is comeplete"
         read -n 1 -r -s -p "Press any key to return to Loot Menu" key
         clear ;;
-    5) clear ;;
+    5) clear 
+        validsprayfile=$(ls $home/workspaces/$workspace/Users/emails | grep -E "enum_spray*")
+        echo "creating zip file"
+        zip Loot.zip $home/workspaces/$workspace/Users/emails/spray/$validsprayfile $home/workspaces/$workspace/Users/emails/$validaccountfile $home/workspaces/$workspace/DNSInfo/SubBrute.txt$home/workspaces/$workspace/DNSInfo/DNSZoneTransfer.txt $home/workspaces/$workspace/DNSInfo/DNSRecords.txt
+    ;;
 
 	8) /opt/AutoRecon/scripts/AutoEnum.sh ;;
 
