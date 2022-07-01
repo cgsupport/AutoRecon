@@ -1,20 +1,9 @@
 clear
 Whatuser=$(tty | tr -d dev | cut -c3-)
-nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep -v "grep")
-PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep -v "grep")
 home=$(echo ~)
 nmapscanrunning="false"
 PassSprayStatus="false"
 
-if [ -n $nmapproc  ]; then
-
-	nmapscanrunning="true"
-fi
-
-if [ -n $PassSpray ]; then
-
-	PassSprayStatus="true"
-fi
 echo "----------------------------------"
 echo "AutoEnum" 
 echo "----------------------------------"
@@ -35,7 +24,21 @@ if [ ! -d "$home/workspaces/$workspace" ]; then
 fi
 
 sleep 3
-clear
+clear 
+
+nmapproc=$(ps -aux | grep "$Whatuser" | grep "nmap" | grep "$workspace" | grep -v "grep")
+PassSpray=$(ps -aux | grep "$Whatuser" | grep "o365spray" | grep "$workspace" | grep -v "grep")
+
+if [ -n $nmapproc  ]; then
+
+	nmapscanrunning="true"
+fi
+
+if [ -n $PassSpray ]; then
+
+	PassSprayStatus="true"
+fi
+
 echo "=================================="
 echo "---------Workspaces---------------"
 echo "=================================="
