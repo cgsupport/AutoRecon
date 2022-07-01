@@ -4,6 +4,10 @@ ExtAddr=$(cat $home/workspaces/$workspace/NMAP/External/extTargets.txt)
 Domain=$(cat $home/workspaces/$workspace/Var/domain.txt)
 
 read -p "Please enter the workspace name:  " workspace
+
+ExtAddr=$(cat $home/workspaces/$workspace/NMAP/External/extTargets.txt)
+Domain=$(cat $home/workspaces/$workspace/Var/domain.txt)
+
 clear
 echo "Performing the following automated checks"
 echo ""
