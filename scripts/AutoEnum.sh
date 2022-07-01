@@ -30,15 +30,13 @@ echo "checking for workspace folder"
 read -p "please enter the name of the workspace folder " workspace
 
 
-if [ -d "$home/workspaces/$workspace" ]; then
-	 echo "$DIR directory exists."
-     clear
-else
+if [ ! -d "$home/workspaces/$workspace" ]; then
 	echo "$DIR directory does not exist. Setting up workspace"
 	/opt/AutoRecon/scripts/workspace.sh
 	exit
 fi
-
+sleep 3
+clear
 echo "=================================="
 echo "---------Workspaces---------------"
 echo "=================================="
