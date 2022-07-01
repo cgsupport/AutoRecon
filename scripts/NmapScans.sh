@@ -17,7 +17,8 @@ EXTADDR=$(cat $home/workspaces/$COMPANYNAME/NMAP/External/extTargets.txt)
 echo "Starting External NMAP scan"
 echo " running nmap against target $EXTADDR"
 echo""
-nmap -T2 -p- -iL $home/workspaces/$COMPANYNAME/NMAP/External/extTargets.txt -oA $home/workspaces/$COMPANYNAME/NMAP/External/externaltcp -Pn &>/dev/null & nmap -T2 -sU -iL $home/workspaces/$COMPANYNAME/NMAP/External/extTargets.txt -oA $home/workspaces/$COMPANYNAME/NMAP/External/externaludp -Pn &>/dev/null &
+nmap -T2 -p- -iL $home/workspaces/$COMPANYNAME/NMAP/External/extTargets.txt -oA $home/workspaces/$COMPANYNAME/NMAP/External/externaltcp -Pn &>/dev/null & 
+nmap -T2 -sU -iL $home/workspaces/$COMPANYNAME/NMAP/External/extTargets.txt -oA $home/workspaces/$COMPANYNAME/NMAP/External/externaludp -Pn &>/dev/null &
 echo ""
 echo "Scans running in background"
 echo ""
