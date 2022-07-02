@@ -1,0 +1,4 @@
+EXTADDR=""
+DomainName=""
+emailformat=""
+
