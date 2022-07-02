@@ -46,31 +46,31 @@ function runningNmapScans () {
 }
 
 
-#function bannerMain () {
+function bannerMain () {
     
-    # echo "======================================================"
-    # echo "                _        ______                       "
-    # echo "     /\        | |      |  ____|                      "
-    # echo "    /  \  _   _| |_ ___ | |__   _ __  _   _ _ __ ___  "
-    # echo "   / /\ \| | | | __/ _ \|  __| | '_ \| | | | '_ ` _ \ "
-    # echo "  / ____ \ |_| | || (_) | |____| | | | |_| | | | | | |"
-    # echo " /_/    \_\__,_|\__\___/|______|_| |_|\__,_|_| |_| |_|"
-    # echo "======================================================"
-    # echo "Created By : Matt"
-    # echo "With Help from: Yakub and Ant"
-    # echo "DISCLAIMER: This script is for targets you have"
-    # echo " permission to engage - I hold no responsibility for "
-    # echo "your actions or your prison sentence"
-    # echo "======================================================"
-    # echo "Current Set Variables"
-    # echo "Running User: $USER "
-    # echo "Workspace Exists: "
-    # echo "Existing Working Directories"
-    # echo "======================================================"
-    # ls $home/workspaces
-    # echo "======================================================"
+    echo "======================================================"
+    echo "                _        ______                       "
+    echo "     /\        | |      |  ____|                      "
+    echo "    /  \  _   _| |_ ___ | |__   _ __  _   _ _ __ ___  "
+    echo "   / /\ \| | | | __/ _ \|  __| | '_ \| | | | '_ ` _ \ "
+    echo "  / ____ \ |_| | || (_) | |____| | | | |_| | | | | | |"
+    echo " /_/    \_\__,_|\__\___/|______|_| |_|\__,_|_| |_| |_|"
+    echo "======================================================"
+    echo "Created By : Matt"
+    echo "With Help from: Yakub and Ant"
+    echo "DISCLAIMER: This script is for targets you have"
+    echo " permission to engage - I hold no responsibility for "
+    echo "your actions or your prison sentence"
+    echo "======================================================"
+    echo "Current Set Variables"
+    echo "Running User: $USER "
+    echo "Workspace Exists: "
+    echo "Existing Working Directories"
+    echo "======================================================"
+    ls $home/workspaces
+    echo "======================================================"
 
-#}
+}
 
 function CreateWorkspace () {
 
